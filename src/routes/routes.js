@@ -4,7 +4,19 @@ const profileController = require('../controllers/profile')
 const userController = require('../controllers/user')
 const passport = require('../auth/auth')
 
-router.post("/loginLinkedin", userController.loginLinkedin)
+router.post("/loginLinkedin", passport.authenticate('linkedin', {
+    successRedirect: '/', //userController.loginLinkedin)
+    failureRedirect: '/login'
+  }));
+ 
+
+/* app.get('/auth/linkedin',
+  passport.authenticate('linkedin'),
+  function(req, res){
+    // The request will be redirected to LinkedIn for authentication, so this
+    // function will not be called.
+  }); */
+
 /* router.post("/profile", passport.auth, profileController.saveProfile)
 router.get("/profiles", profileController.getProfiles)
 router.get("/profile/:id", profileController.getProfile)
