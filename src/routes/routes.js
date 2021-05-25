@@ -4,11 +4,13 @@ const profileController = require('../controllers/profile')
 const userController = require('../controllers/user')
 const passport = require('../auth/auth')
 
-router.post("/loginLinkedin", passport.authenticate('linkedin', {
+/* router.post("/loginLinkedin", passport.authenticate('linkedin', {
     successRedirect: '/', //userController.loginLinkedin)
     failureRedirect: '/login'
-  }));
- 
+  })); */
+
+  router.post("/login", userController.login)
+  router.post("/signup", userController.signup)
 
 /* app.get('/auth/linkedin',
   passport.authenticate('linkedin'),
@@ -22,8 +24,6 @@ router.get("/profiles", profileController.getProfiles)
 router.get("/profile/:id", profileController.getProfile)
 router.put("/profile/:id", passport.auth, profileController.updateProfile)
 router.delete("/profile/:id", passport.auth, profileController.deleteProfile)
-
-router.post("/user", userController.signup)
-router.post("/login", userController.login) */
+ */
 
 module.exports = router

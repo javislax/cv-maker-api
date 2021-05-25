@@ -69,7 +69,7 @@ controller.login = async (req, res) => {
 controller.loginLinkedin = async (req,res) => {
     const tokenLinkedin = req.body.tokenLinkedin
     if(!tokenLinkedin){
-        
+        console.log("Login desde linkedin")
     }
 
 }
