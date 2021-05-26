@@ -6,6 +6,7 @@ const Schema = new SchemaMongo({
     email: { type: String, require: true, unique: true },
     password: { type: String, require: true },
     linkedinToken: { type: String, require: false},
+    cv: [{ type: SchemaMongo.Types.ObjectId, ref: 'cv' }],
 })
 
 Schema.pre('save', async function (next) {

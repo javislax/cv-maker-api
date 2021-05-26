@@ -1,16 +1,17 @@
 const express = require("express")
 const router = express.Router()
-const profileController = require('../controllers/profile')
+const personController = require('../controllers/person')
 const userController = require('../controllers/user')
 const passport = require('../auth/auth')
 
-/* router.post("/loginLinkedin", passport.authenticate('linkedin', {
-    successRedirect: '/', //userController.loginLinkedin)
-    failureRedirect: '/login'
-  })); */
-
+  // Login
   router.post("/login", userController.login)
   router.post("/signup", userController.signup)
+
+  // CRUD Person
+  router.post("/create", personController.savePerson)
+  
+
 
 /* app.get('/auth/linkedin',
   passport.authenticate('linkedin'),

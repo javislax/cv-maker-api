@@ -2,7 +2,7 @@ const { string } = require("joi");
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const ProfileSchema = new Schema({
+const PersonSchema = new Schema({
   languages: [String],
   experience: [String],
   education: [String],
@@ -13,12 +13,11 @@ const ProfileSchema = new Schema({
   picture: String,
   birthday: String,
   job: String,
-  iduser: String,
-  _id: String,
+  user :{ type: Schema.Types.ObjectId, ref: 'user' },
   savedAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now },
 });
 
-const Model = mongoose.model("profile", ProfileSchema);
+const Model = mongoose.model("person", PersonSchema);
 
 module.exports = Model;
