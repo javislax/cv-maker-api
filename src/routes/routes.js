@@ -2,17 +2,19 @@ const express = require("express")
 const router = express.Router()
 const personController = require('../controllers/person')
 const userController = require('../controllers/user')
+const linkedinController = require('../controllers/linkedin')
 const passport = require('../auth/auth')
 
   // Login
   router.post("/login", userController.login)
   router.post("/signup", userController.signup)
-
+  
   // CRUD Person
   router.post("/create", personController.savePerson)
   
-
-
+  // Linkedin
+  router.get("/linkedin", linkedinController.getProfile)
+  router.get("/linkedinPicture", linkedinController.getProfilePicture)
 /* app.get('/auth/linkedin',
   passport.authenticate('linkedin'),
   function(req, res){
