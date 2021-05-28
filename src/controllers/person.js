@@ -45,8 +45,8 @@ controller.getPerson = async (req, res) => {
   const id = req.params.id;
 
   try {
-    const profile = await Profile.findById(id);
-    res.json(profile);
+    const person = await Person.findById(id);
+    res.json(person);
   } catch (err) {
     console.log(err);
     res.status(500).send({ error: "El persona no encontrada" });
