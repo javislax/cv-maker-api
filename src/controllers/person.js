@@ -34,14 +34,14 @@ controller.savePerson = async (req, res) => {
       education:education,
     });
     await person.save();
-    res.status(201).send();
+    res.status(201).send(person._id);
   } catch (err) {
       console.log(err)
     res.status(500).send(err);
   }
 };
 
-controller.getProfile = async (req, res) => {
+controller.getPerson = async (req, res) => {
   const id = req.params.id;
 
   try {
