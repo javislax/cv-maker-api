@@ -11,6 +11,7 @@ const passport = require('../auth/auth')
   
   // CRUD Person
   router.post("/create", personController.savePerson)
+  router.get("/person/:id", personController.getPerson)
   
   // Linkedin
   router.get("/linkedin", linkedinController.getProfile)
