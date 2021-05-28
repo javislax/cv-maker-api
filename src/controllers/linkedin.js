@@ -69,4 +69,18 @@ controller.getProfilePicture = async (req, res) => {
     }
 };
 
+controller.setToken = async (req, res) => {
+    const token = req.params.token;
+    if (!token) {
+        res.status(400).send();
+    }
+    try {
+        this.accessToken = token;
+        res.status(201).send();
+    } catch (err) {
+        console.log(err);
+        res.status(500).send("Error");
+    }
+};
+
 module.exports = controller;
